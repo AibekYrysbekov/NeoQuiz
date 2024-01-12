@@ -33,9 +33,8 @@ ALLOWED_HOSTS = [
     "0.0.0.0",
     "localhost",
     "127.0.0.1",
-    "www.aibek-backender.org.kg",
-    "aibek-backender.org.kg",
-    "165.227.170.125",
+    "www.rio-backender.org.kg",
+    "rio-backender.org.kg",
     "164.90.217.138",
 ]
 
@@ -169,10 +168,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = [
-    "https://aibek-backender.org.kg"
+    "https://rio-backender.org.kg"
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://aibek-backender.org.kg']
+CSRF_TRUSTED_ORIGINS = ['https://rio-backender.org.kg']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 

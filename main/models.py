@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
 
     class Meta:
         verbose_name = "Категория"
@@ -29,7 +29,8 @@ class Article(models.Model):
 
 
 class Quiz(models.Model):
-    title = models.CharField(max_length=255)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    description = models.TextField(max_length=1000)
     num_questions = models.IntegerField()
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -39,7 +40,7 @@ class Quiz(models.Model):
         verbose_name_plural = "Квизы"
 
     def __str__(self):
-        return self.title
+        return self.category.name
 
 
 class Question(models.Model):

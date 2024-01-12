@@ -1,3 +1,4 @@
+from django.db.models import Q
 from rest_framework import generics
 from rest_framework.pagination import PageNumberPagination
 
@@ -21,12 +22,13 @@ class ArticleListCreateView(generics.ListCreateAPIView):
     pagination_class = CustomArticlePagination
 
     def get_queryset(self):
-        category_id = self.request.query_params.get('category')
+        category_id = self.kwargs.get('category_id')
         if category_id:
             queryset = Article.objects.filter(category_id=category_id)
         else:
             queryset = Article.objects.all()
         return queryset
+
 
 
 class QuizListCreateView(generics.ListCreateAPIView):
@@ -42,3 +44,18 @@ class QuestionListCreateView(generics.ListCreateAPIView):
 class AnswerListCreateView(generics.ListCreateAPIView):
     queryset = Answer.objects.all()
     serializer_class = AnswerSerializer
+
+
+class ArticleSearchView(generics.ListAPIView):
+    serializer_class = ArticleSerializer
+    pagination_class = CustomArticlePagination
+
+    def get_queryset(self):
+        search_query = self.request.query_params.get('search', '')
+
+        if search_query:
+            queryset = Article.objects.filter(Q(title__icontains=search_query))
+        else:
+            queryset = Article.objects.none()
+
+        return queryset
