@@ -35,7 +35,7 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "www.rio-backender.org.kg",
     "rio-backender.org.kg",
-    "164.90.217.138",
+    "46.101.96.121",
 ]
 
 
