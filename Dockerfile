@@ -1,11 +1,19 @@
 FROM python:3.11
 
-ENV APP_HOME /app
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-WORKDIR $APP_HOME
+
+WORKDIR /app
 
 COPY ./requirements.txt .
+
 RUN pip install -r requirements.txt
 
 COPY . .
 
+EXPOSE 8000
+
+RUN chmod +x entrypoint.sh
+
+CMD ["./entrypoint.sh"]
