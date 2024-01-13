@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-e$0%fjcu)w#53&969*4dc$4#fvphc5a!*5!a=qo9zx&t%x7a+k'
+SECRET_KEY = 'django-insecure--@q)6w&(q#*!(h@1mpx0=4f96qza@k^fl@!i)62nlm9=t@offm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -47,13 +47,13 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     'cloudinary',
 
     # local apps
     'main',
-    
+
     # third party apps
     'rest_framework',
     'drf_yasg',
@@ -112,7 +112,6 @@ DATABASES = {
 }
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -147,13 +146,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = []
 
-MEDIA_URL = '/media/'
+MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': config('CLOUD_NAME'),
