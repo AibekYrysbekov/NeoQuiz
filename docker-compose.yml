@@ -25,7 +25,8 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - .:/backend_auth
+      - .:/config
+      - ./static:/app/static
     env_file:
       - .env
     depends_on:
