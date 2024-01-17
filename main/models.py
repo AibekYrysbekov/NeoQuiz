@@ -25,7 +25,7 @@ class Article(models.Model):
         verbose_name_plural = "Статьи"
 
     def __str__(self):
-        return self.title
+        return f"{self.title}  {self.category.name}"
 
 
 class Quiz(models.Model):
