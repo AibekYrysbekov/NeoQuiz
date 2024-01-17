@@ -19,6 +19,7 @@ class Article(models.Model):
     study_time = models.IntegerField()
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
+    backgroundColor = models.CharField(max_length=50)
 
     class Meta:
         verbose_name = "Статья"
@@ -34,6 +35,7 @@ class Quiz(models.Model):
     num_questions = models.IntegerField()
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
+    backgroundColor = models.CharField(max_length=50)
 
     class Meta:
         verbose_name = "Квиз"
