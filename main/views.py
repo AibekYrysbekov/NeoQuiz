@@ -30,6 +30,10 @@ class ArticleListCreateView(generics.ListCreateAPIView):
         return queryset
 
 
+class ArticleUpdateView(generics.RetrieveUpdateAPIView):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+
 
 class QuizListCreateView(generics.ListCreateAPIView):
     queryset = Quiz.objects.all()
