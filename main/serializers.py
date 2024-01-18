@@ -5,7 +5,7 @@ from .models import *
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = '__all__'
+        fields = ['name']
 
 
 class ArticleSerializer(serializers.ModelSerializer):
@@ -15,9 +15,11 @@ class ArticleSerializer(serializers.ModelSerializer):
 
 
 class QuizSerializer(serializers.ModelSerializer):
+    category = CategorySerializer()
+
     class Meta:
         model = Quiz
-        fields = '__all__'
+        fields = ['id', 'description', 'num_questions', 'image', 'date_created', 'backgroundColor', 'category']
 
 
 class QuestionSerializer(serializers.ModelSerializer):
