@@ -40,6 +40,11 @@ class QuizListCreateView(generics.ListCreateAPIView):
     serializer_class = QuizSerializer
 
 
+class QuizUpdateView(generics.RetrieveUpdateAPIView):
+    queryset = Quiz.objects.all()
+    serializer_class = QuizSerializer
+
+
 class QuestionListCreateView(generics.ListCreateAPIView):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
