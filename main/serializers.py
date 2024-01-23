@@ -9,19 +9,15 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class ArticleSerializer(serializers.ModelSerializer):
-    category = CategorySerializer()
-
     class Meta:
         model = Article
-        fields = ['id', 'title', 'content', 'study_time', 'image', 'date_created', 'backgroundColor', 'category']
+        fields = '__all__'
 
 
 class QuizSerializer(serializers.ModelSerializer):
-    category = CategorySerializer()
-
     class Meta:
         model = Quiz
-        fields = ['id', 'description', 'num_questions', 'image', 'date_created', 'backgroundColor', 'category']
+        fields = '__all__'
 
 
 class QuestionSerializer(serializers.ModelSerializer):
