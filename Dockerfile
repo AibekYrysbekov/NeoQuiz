@@ -3,6 +3,7 @@ FROM python:3.11
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+RUN apt-get update && apt-get install -y postgresql-client
 
 WORKDIR /app
 
@@ -14,6 +15,8 @@ COPY . .
 
 EXPOSE 8000
 
-RUN chmod +x entrypoint.sh
+# Добавляем entrypoint скрипт
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
-CMD ["./entrypoint.sh"]
+CMD ["/entrypoint.sh"]
